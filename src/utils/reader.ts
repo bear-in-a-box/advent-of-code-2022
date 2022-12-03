@@ -6,7 +6,7 @@ export async function readLineByLine(
   file: string,
   options: {
     onLine: (line: string) => void;
-    onFinish: () => void;
+    onFinish?: () => void;
   }
 ): Promise<void> {
   const reader = createInterface({
@@ -18,5 +18,5 @@ export async function readLineByLine(
 
   await once(reader, 'close');
 
-  options.onFinish();
+  options.onFinish?.();
 }

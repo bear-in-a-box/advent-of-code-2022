@@ -37,4 +37,4 @@ async function run() {
   return totalPriority;
 }
 
-benchmark('day 03, star 1', run);
+benchmark('day 03, star 2', run);

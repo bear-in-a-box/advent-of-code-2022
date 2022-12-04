@@ -27,7 +27,7 @@ function createBitsetForElf(section: Section): Bitset {
 
 function isPairOverlapping(elves: Pair<Section>): boolean {
   const [elfA, elfB] = elves.map(createBitsetForElf);
-  return !elfA.and(elfB).isEmpty();
+  return !elfA.and(elfB).isEmpty;
 }
 
 async function run() {

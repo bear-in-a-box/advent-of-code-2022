@@ -10,16 +10,6 @@ export class Bitset {
     return this;
   }
 
-  clear(bit: number) {
-    this.value &= 1n << BigInt(bit);
-    return this;
-  }
-
-  test(bit: number): boolean {
-    const bitValue = 1n << BigInt(bit);
-    return (this.value & bitValue) === bitValue;
-  }
-
   and(other: Bitset): Bitset {
     return new Bitset(this.value & other.value);
   }
@@ -28,11 +18,7 @@ export class Bitset {
     return this.value === other.value;
   }
 
-  isEmpty(): boolean {
+  get isEmpty(): boolean {
     return this.value === 0n;
-  }
-
-  toBigInt(): BigInt {
-    return this.value.valueOf();
   }
 }

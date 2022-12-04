@@ -28,6 +28,10 @@ export class Bitset {
     return this.value === other.value;
   }
 
+  isEmpty(): boolean {
+    return this.value === 0n;
+  }
+
   toBigInt(): BigInt {
     return this.value.valueOf();
   }

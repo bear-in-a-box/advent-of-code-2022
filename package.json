@@ -7,7 +7,9 @@
     "day02s1": "npm run _run src/days/02/p1 input.txt",
     "day02s2": "npm run _run src/days/02/p2 input.txt",
     "day03s1": "npm run _run src/days/03/p1 input.txt",
-    "day03s2": "npm run _run src/days/03/p2 input.txt"
+    "day03s2": "npm run _run src/days/03/p2 input.txt",
+    "day04s1": "npm run _run src/days/04/p1 input.txt",
+    "day04s2": "npm run _run src/days/04/p2 input.txt"
   },
   "keywords": [
     "advent-of-code"

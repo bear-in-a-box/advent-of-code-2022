@@ -1,5 +1,5 @@
 import { once } from 'node:events';
-import { createReadStream } from 'node:fs';
+import { createReadStream, promises as fs } from 'node:fs';
 import { createInterface } from 'node:readline';
 
 export async function readLineByLine(
@@ -19,4 +19,8 @@ export async function readLineByLine(
   await once(reader, 'close');
 
   options.onFinish?.();
+}
+
+export async function readWholeFile(file: string) {
+  return fs.readFile(file, { encoding: 'utf-8' });
 }

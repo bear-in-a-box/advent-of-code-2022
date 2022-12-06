@@ -1,3 +1,5 @@
+import { readWholeFile } from 'utils/reader';
+import { getInputPath } from 'utils/argv';
 class Stats {
   private readonly letters = new Map<string, number>();
 
@@ -28,7 +30,7 @@ class Stats {
   }
 }
 
-export function findMarkerIndex(input: string, length: number): number {
+function findMarkerIndex(input: string, length: number): number {
   const stats = new Stats();
 
   for (let i = 0; i < input.length; i++) {
@@ -44,4 +46,10 @@ export function findMarkerIndex(input: string, length: number): number {
     }
   }
   return -1;
+}
+
+export async function runForLength(length: number): Promise<number> {
+  const input = await readWholeFile(getInputPath(__dirname));
+
+  return findMarkerIndex(input, length);
 }

@@ -1,15 +1,7 @@
 {
   "name": "advent-of-code-2022",
   "scripts": {
-    "_run": "node --expose-gc -r ts-node/register",
-    "day01s1": "npm run _run src/days/01/p1 input.txt",
-    "day01s2": "npm run _run src/days/01/p2 input.txt",
-    "day02s1": "npm run _run src/days/02/p1 input.txt",
-    "day02s2": "npm run _run src/days/02/p2 input.txt",
-    "day03s1": "npm run _run src/days/03/p1 input.txt",
-    "day03s2": "npm run _run src/days/03/p2 input.txt",
-    "day04s1": "npm run _run src/days/04/p1 input.txt",
-    "day04s2": "npm run _run src/days/04/p2 input.txt"
+    "start": "node --expose-gc -r ts-node/register"
   },
   "keywords": [
     "advent-of-code"
@@ -18,6 +10,7 @@
   "license": "WTFPL",
   "devDependencies": {
     "@types/node": "^18.11.10",
+    "nodemon": "^2.0.20",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "^4.1.1",
     "typescript": "^4.9.3"

@@ -23,7 +23,6 @@ export class Rope {
       console.log('Move in direction', direction, steps);
     }
     while (steps--) {
-      const last: Coords = { ...this.head };
       switch (direction) {
         case Direction.Up:
           this.head.y--;

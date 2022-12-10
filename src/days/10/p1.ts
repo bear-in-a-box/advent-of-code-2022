@@ -2,7 +2,7 @@ import { benchmark } from 'utils/benchmark';
 import { readLineByLine } from 'utils/reader';
 import { getInputPath } from 'utils/argv';
 
-import { CPU } from './cpu';
+import { CPU } from './p1/cpu';
 
 async function run() {
   let sumOfStrengths: number = 0;

@@ -5,9 +5,7 @@ const TICKS: Record<string, number> = {
 
 export class CPU {
   private ticks: number = 0;
-  private readonly registers: Record<string, number> = {
-    x: 1,
-  };
+  public registerX: number = 1;
 
   constructor(
     public readonly signalStrengthReporter: (strength: number) => void
@@ -30,7 +28,7 @@ export class CPU {
     }
     if (instruction === 'addx') {
       const value = Number(args[0]);
-      this.registers.x += value;
+      this.registerX += value;
     }
   }
 
@@ -38,6 +36,6 @@ export class CPU {
     if ((this.ticks + 20) % 40 !== 0) {
       return;
     }
-    this.signalStrengthReporter(this.ticks * this.registers.x);
+    this.signalStrengthReporter(this.ticks * this.registerX);
   }
 }

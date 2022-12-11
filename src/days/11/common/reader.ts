@@ -4,10 +4,7 @@ import { getInputPath } from 'utils/argv';
 import { Monkey } from './monkey';
 import { parseOperation } from './operation';
 
-export async function fetchMonkeys(
-  losingInterest: boolean,
-  dirname: string
-): Promise<Monkey[]> {
+export async function fetchMonkeys(dirname: string): Promise<Monkey[]> {
   const monkeys: Monkey[] = [];
 
   const input = await readWholeFile(getInputPath(dirname));
@@ -26,8 +23,7 @@ export async function fetchMonkeys(
         operation,
         testDivisibleBy,
         testTrueThrowTo,
-        testFalseThrowTo,
-        losingInterest
+        testFalseThrowTo
       )
     );
   }

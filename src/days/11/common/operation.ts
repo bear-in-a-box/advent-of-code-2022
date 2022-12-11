@@ -1,6 +1,7 @@
-export type Operation = (old: number) => number;
+export type Operation = (x: number) => number;
+export type OperationWithMod = (x: number, mod: number) => number;
 
-export function parseOperation(input: string): Operation {
+export function parseOperation(input: string): OperationWithMod {
   const vars = input.match(
     /new = (?<left>old|\d+) (?<operand>[*+]) (?<right>old|\d+)/
   )?.groups;
@@ -17,10 +18,10 @@ export function parseOperation(input: string): Operation {
   const left: Operation = getValueOperation('left');
   const right: Operation = getValueOperation('right');
   if (vars.operand === '*') {
-    return (old: number) => left(old) * right(old);
+    return (x: number, mod: number) => (left(x) * right(x)) % mod;
   }
   if (vars.operand === '+') {
-    return (old: number) => left(old) + right(old);
+    return (x: number, mod: number) => (left(x) + right(x)) % mod;
   }
   return () => NaN;
 }

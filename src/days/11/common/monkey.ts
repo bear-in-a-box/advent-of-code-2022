@@ -1,17 +1,18 @@
-import { Operation } from './operation';
+import { OperationWithMod } from './operation';
 
 export class Monkey {
-  private readonly _inspect: Operation;
+  private readonly _inspect: OperationWithMod;
   private _inspections: number = 0;
+  public losingInterest: boolean = true;
+  public commonDivisor: number = 0;
 
   constructor(
     public readonly index: number,
     public readonly items: number[],
-    inspect: Operation,
-    private readonly testDivisibleBy: number,
+    inspect: OperationWithMod,
+    public readonly testDivisibleBy: number,
     private readonly testTrueThrowTo: number,
-    private readonly testFalseThrowTo: number,
-    private readonly losingInterest: boolean
+    private readonly testFalseThrowTo: number
   ) {
     this._inspect = inspect;
   }
@@ -26,7 +27,7 @@ export class Monkey {
 
   inspect(old: number): number {
     this._inspections++;
-    return this._inspect(old);
+    return this._inspect(old, this.commonDivisor);
   }
 
   loseInterest(item: number): number {

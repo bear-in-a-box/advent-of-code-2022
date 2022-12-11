@@ -10,7 +10,8 @@ export class Monkey {
     inspect: Operation,
     private readonly testDivisibleBy: number,
     private readonly testTrueThrowTo: number,
-    private readonly testFalseThrowTo: number
+    private readonly testFalseThrowTo: number,
+    private readonly losingInterest: boolean
   ) {
     this._inspect = inspect;
   }
@@ -29,6 +30,9 @@ export class Monkey {
   }
 
   loseInterest(item: number): number {
+    if (!this.losingInterest) {
+      return item;
+    }
     return Math.floor(item / 3);
   }
 

@@ -1,7 +1,7 @@
 export type Coords = [number, number];
 export type LineShape = Coords[];
 
-const enum Node {
+export const enum Node {
   Empty = '.',
   Rock = '#',
   Sand = 'o',
